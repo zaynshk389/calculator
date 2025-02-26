@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator Clone</title>
+    <title>Enhanced Calculator</title>
     <style>
         body {
             display: flex;
@@ -12,12 +12,22 @@
             height: 100vh;
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
         }
         .calculator {
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .dark-mode .calculator {
+            background-color: #444;
+            color: #fff;
         }
         .display {
             width: 100%;
@@ -29,6 +39,10 @@
             border: none;
             border-radius: 5px;
             margin-bottom: 10px;
+            transition: background-color 0.5s;
+        }
+        .dark-mode .display {
+            background-color: #555;
         }
         .buttons {
             display: grid;
@@ -43,9 +57,30 @@
             text-align: center;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .button:hover {
             background-color: #e0e0e0;
+            transform: scale(1.05);
+        }
+        .dark-mode .button {
+            background-color: #666;
+            color: #fff;
+        }
+        .dark-mode .button:hover {
+            background-color: #777;
+        }
+        .history {
+            margin-top: 20px;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+        .history-item {
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+        .dark-mode .history-item {
+            border-bottom: 1px solid #777;
         }
     </style>
 </head>
@@ -83,10 +118,17 @@
             <div class="button" onclick="addToDisplay('0')">0</div>
             <div class="button" onclick="addToDisplay('.')">.</div>
             <div class="button" onclick="calculate()">=</div>
+            <div class="button" onclick="toggleDarkMode()">🌙</div>
         </div>
+        <div class="history" id="history">
+            <div class="history-item">History:</div>
+        </div>
+        <div class="button" onclick="clearHistory()">Clear History</div>
     </div>
 
     <script>
+        let history = [];
+
         function addToDisplay(value) {
             document.getElementById('display').value += value;
         }
@@ -96,9 +138,35 @@
                 let expression = document.getElementById('display').value;
                 let result = eval(expression);
                 document.getElementById('display').value = result;
+                addToHistory(expression + ' = ' + result);
             } catch (e) {
                 document.getElementById('display').value = 'Error';
             }
+        }
+
+        function addToHistory(entry) {
+            history.push(entry);
+            if (history.length > 5) {
+                history.shift();
+            }
+            updateHistory();
+        }
+
+        function updateHistory() {
+            let historyDiv = document.getElementById('history');
+            historyDiv.innerHTML = '<div class="history-item">History:</div>';
+            history.forEach(item => {
+                historyDiv.innerHTML += '<div class="history-item">' + item + '</div>';
+            });
+        }
+
+        function clearHistory() {
+            history = [];
+            updateHistory();
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
         }
     </script>
 </body>
