@@ -57,11 +57,42 @@ body.light-mode {
 
 .slider:before {
     position: absolute;
-    content:
-border-radius: 20px;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+#theme-label {
+    margin-left: 10px;
+    font-size: 1rem;
+    color: #fff;
+}
+
+body.light-mode #theme-label {
+    color: #333;
+}
+
+/* Calculator Container */
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 1000px; /* Wider for a horizontal layout */
+    width: 1000px; /* Wider for better spacing */
     overflow: hidden;
     transition: background 0.3s;
 }
@@ -102,7 +133,7 @@ body.light-mode #result {
 /* Buttons */
 .buttons {
     display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 8 columns for a wide layout */
+    grid-template-columns: repeat(8, 1fr); /* 8 columns for better spacing */
     gap: 10px;
 }
 
