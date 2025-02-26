@@ -92,7 +92,7 @@ body.light-mode #theme-label {
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 400px;
+    width: 800px; /* Landscape width */
     overflow: hidden;
     transition: background 0.3s;
 }
@@ -133,7 +133,7 @@ body.light-mode #result {
 /* Buttons */
 .buttons {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(8, 1fr); /* 8 columns for landscape */
     gap: 10px;
 }
 
