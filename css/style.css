@@ -92,7 +92,7 @@ body.light-mode #theme-label {
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 600px; /* Adjusted width */
+    width: 800px; /* Wider for better spacing */
     overflow: hidden;
     transition: background 0.3s;
 }
@@ -133,7 +133,7 @@ body.light-mode #result {
 /* Buttons */
 .buttons {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 columns for exact layout */
+    grid-template-columns: repeat(8, 1fr); /* 8 columns for better spacing */
     gap: 10px;
 }
 
@@ -141,8 +141,8 @@ body.light-mode #result {
     background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 10px;
-    padding: 15px; /* Adjusted padding */
-    font-size: 1.2rem; /* Adjusted font size */
+    padding: 20px; /* Larger buttons for better usability */
+    font-size: 1.5rem; /* Larger font for better readability */
     color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -187,7 +187,7 @@ body.light-mode .operator {
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 20px;
-    width: 250px; /* Adjusted width */
+    width: 300px; /* Wider history panel */
     max-height: 400px;
     overflow-y: auto;
     transition: background 0.3s;
