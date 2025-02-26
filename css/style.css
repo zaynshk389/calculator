@@ -57,42 +57,11 @@ body.light-mode {
 
 .slider:before {
     position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-#theme-label {
-    margin-left: 10px;
-    font-size: 1rem;
-    color: #fff;
-}
-
-body.light-mode #theme-label {
-    color: #333;
-}
-
-/* Calculator Container */
-.calculator {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
+    content:
+border-radius: 20px;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 900px; /* Wider for landscape */
+    width: 1000px; /* Wider for a horizontal layout */
     overflow: hidden;
     transition: background 0.3s;
 }
@@ -120,7 +89,7 @@ body.light-mode .display {
     border: none;
     background: transparent;
     color: #fff;
-    font-size: 2rem;
+    font-size: 2.5rem; /* Larger font for better visibility */
     outline: none;
     pointer-events: none;
     transition: color 0.3s;
@@ -133,7 +102,7 @@ body.light-mode #result {
 /* Buttons */
 .buttons {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 columns for landscape */
+    grid-template-columns: repeat(8, 1fr); /* 8 columns for a wide layout */
     gap: 10px;
 }
 
@@ -141,8 +110,8 @@ body.light-mode #result {
     background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 10px;
-    padding: 15px;
-    font-size: 1.2rem;
+    padding: 20px; /* Larger buttons for better usability */
+    font-size: 1.5rem; /* Larger font for better readability */
     color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -187,7 +156,7 @@ body.light-mode .operator {
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 20px;
-    width: 250px;
+    width: 300px; /* Wider history panel */
     max-height: 400px;
     overflow-y: auto;
     transition: background 0.3s;
