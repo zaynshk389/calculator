@@ -3,47 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scientific Calculator</title>
+  <title>Professional Scientific Calculator</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="calculator">
+    <!-- Display -->
     <input type="text" id="display" disabled>
-    <div class="buttons">
-      <!-- Advanced Math Functions -->
-      <button onclick="appendToDisplay('Math.pow(')">x^y</button>
-      <button onclick="appendToDisplay('Math.sqrt(')">√</button>
-      <button onclick="appendToDisplay('Math.log(')">ln</button>
-      <button onclick="appendToDisplay('Math.log10(')">log</button>
-      <button onclick="appendToDisplay('Math.sin(')">sin</button>
-      <button onclick="appendToDisplay('Math.cos(')">cos</button>
-      <button onclick="appendToDisplay('Math.tan(')">tan</button>
-      <button onclick="appendToDisplay('Math.asin(')">sin⁻¹</button>
-      <button onclick="appendToDisplay('Math.acos(')">cos⁻¹</button>
-      <button onclick="appendToDisplay('Math.atan(')">tan⁻¹</button>
-      <button onclick="appendToDisplay('Math.sinh(')">sinh</button>
-      <button onclick="appendToDisplay('Math.cosh(')">cosh</button>
-      <button onclick="appendToDisplay('Math.tanh(')">tanh</button>
-      <button onclick="appendToDisplay('factorial(')">!</button>
-      <button onclick="appendToDisplay('%')">%</button>
-      <button onclick="appendToDisplay('Math.PI')">π</button>
-      <button onclick="appendToDisplay('Math.E')">e</button>
 
+    <!-- Buttons -->
+    <div class="buttons">
       <!-- Memory Functions -->
-      <button onclick="memoryStore()">M+</button>
-      <button onclick="memoryRecall()">MR</button>
-      <button onclick="memoryClear()">MC</button>
-      <button onclick="memoryAdd()">M+</button>
+      <button class="memory" onclick="memoryStore()">M+</button>
+      <button class="memory" onclick="memoryRecall()">MR</button>
+      <button class="memory" onclick="memoryClear()">MC</button>
+      <button class="memory" onclick="memoryAdd()">M+</button>
+
+      <!-- Advanced Math Functions -->
+      <button class="advanced" onclick="appendToDisplay('Math.pow(')">x^y</button>
+      <button class="advanced" onclick="appendToDisplay('Math.sqrt(')">√</button>
+      <button class="advanced" onclick="appendToDisplay('Math.log(')">ln</button>
+      <button class="advanced" onclick="appendToDisplay('Math.log10(')">log</button>
+      <button class="advanced" onclick="appendToDisplay('Math.sin(')">sin</button>
+      <button class="advanced" onclick="appendToDisplay('Math.cos(')">cos</button>
+      <button class="advanced" onclick="appendToDisplay('Math.tan(')">tan</button>
+      <button class="advanced" onclick="appendToDisplay('Math.asin(')">sin⁻¹</button>
+      <button class="advanced" onclick="appendToDisplay('Math.acos(')">cos⁻¹</button>
+      <button class="advanced" onclick="appendToDisplay('Math.atan(')">tan⁻¹</button>
+      <button class="advanced" onclick="appendToDisplay('Math.sinh(')">sinh</button>
+      <button class="advanced" onclick="appendToDisplay('Math.cosh(')">cosh</button>
+      <button class="advanced" onclick="appendToDisplay('Math.tanh(')">tanh</button>
+      <button class="advanced" onclick="appendToDisplay('factorial(')">!</button>
+      <button class="advanced" onclick="appendToDisplay('%')">%</button>
+      <button class="advanced" onclick="appendToDisplay('Math.PI')">π</button>
+      <button class="advanced" onclick="appendToDisplay('Math.E')">e</button>
 
       <!-- Unit Conversions -->
-      <button onclick="convertUnit('degToRad')">Deg→Rad</button>
-      <button onclick="convertUnit('radToDeg')">Rad→Deg</button>
-      <button onclick="convertUnit('celsiusToFahrenheit')">°C→°F</button>
-      <button onclick="convertUnit('fahrenheitToCelsius')">°F→°C</button>
+      <button class="unit" onclick="convertUnit('degToRad')">Deg→Rad</button>
+      <button class="unit" onclick="convertUnit('radToDeg')">Rad→Deg</button>
+      <button class="unit" onclick="convertUnit('celsiusToFahrenheit')">°C→°F</button>
+      <button class="unit" onclick="convertUnit('fahrenheitToCelsius')">°F→°C</button>
 
       <!-- Basic Buttons -->
-      <button onclick="clearDisplay()">C</button>
-      <button onclick="deleteLast()">DEL</button>
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="delete" onclick="deleteLast()">DEL</button>
       <button onclick="appendToDisplay('(')">(</button>
       <button onclick="appendToDisplay(')')">)</button>
       <button onclick="appendToDisplay('/')">/</button>
@@ -59,9 +62,9 @@
       <button onclick="appendToDisplay('2')">2</button>
       <button onclick="appendToDisplay('3')">3</button>
       <button onclick="appendToDisplay('+')">+</button>
-      <button onclick="appendToDisplay('0')">0</button>
+      <button class="zero" onclick="appendToDisplay('0')">0</button>
       <button onclick="appendToDisplay('.')">.</button>
-      <button onclick="calculateResult()">=</button>
+      <button class="equals" onclick="calculateResult()">=</button>
     </div>
   </div>
   <script src="script.js"></script>
