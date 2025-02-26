@@ -3,75 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Calculator</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Calculator Clone</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .display {
+            width: 100%;
+            height: 50px;
+            background-color: #e0e0e0;
+            text-align: right;
+            padding: 10px;
+            font-size: 24px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+        }
+        .button {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-size: 18px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
 </head>
-<body class="light-mode">
-    <div class="theme-toggle">
-        <label class="switch">
-            <input type="checkbox" id="theme-toggle">
-            <span class="slider"></span>
-        </label>
-        <span id="theme-label">Dark Mode</span>
-    </div>
+<body>
     <div class="calculator">
-        <div class="display">
-            <input type="text" id="result" readonly>
-        </div>
+        <input type="text" class="display" id="display" disabled>
         <div class="buttons">
-            <!-- Left Side: Functions -->
-            <button class="btn operator" data-value="Rad">Rad</button>
-            <button class="btn operator" data-value="Deg">Deg</button>
-            <button class="btn operator" data-value="Inv">Inv</button>
-
-            <button class="btn operator" data-value="(">(</button>
-            <button class="btn operator" data-value=")">)</button>
-            <button class="btn operator" data-value="%">%</button>
-            <button class="btn operator" data-value="C">AC</button>
-
-            <button class="btn operator" data-value="sin">sin</button>
-            <button class="btn operator" data-value="cos">cos</button>
-            <button class="btn operator" data-value="tan">tan</button>
-            <button class="btn operator" data-value="π">π</button>
-
-            <button class="btn operator" data-value="ln">ln</button>
-            <button class="btn operator" data-value="log">log</button>
-            <button class="btn operator" data-value="e">e</button>
-            <button class="btn operator" data-value="√">√</button>
-
-            <button class="btn operator" data-value="^">x²</button>
-            <button class="btn operator" data-value="Ans">Ans</button>
-            <button class="btn operator" data-value="exp">EXP</button>
-            <button class="btn operator" data-value=".">.</button>
-
-            <!-- Right Side: Numbers -->
-            <button class="btn" data-value="7">7</button>
-            <button class="btn" data-value="8">8</button>
-            <button class="btn" data-value="9">9</button>
-            <button class="btn operator" data-value="/">/</button>
-
-            <button class="btn" data-value="4">4</button>
-            <button class="btn" data-value="5">5</button>
-            <button class="btn" data-value="6">6</button>
-            <button class="btn operator" data-value="*">*</button>
-
-            <button class="btn" data-value="1">1</button>
-            <button class="btn" data-value="2">2</button>
-            <button class="btn" data-value="3">3</button>
-            <button class="btn operator" data-value="-">-</button>
-
-            <button class="btn" data-value="0">0</button>
-            <button class="btn equal" data-value="=">=</button>
-            <button class="btn operator" data-value="+">+</button>
+            <div class="button" onclick="addToDisplay('Rad')">Rad</div>
+            <div class="button" onclick="addToDisplay('Deg')">Deg</div>
+            <div class="button" onclick="addToDisplay('x!')">x!</div>
+            <div class="button" onclick="addToDisplay('(')">(</div>
+            <div class="button" onclick="addToDisplay(')')">)</div>
+            <div class="button" onclick="addToDisplay('%')">%</div>
+            <div class="button" onclick="addToDisplay('Inv')">Inv</div>
+            <div class="button" onclick="addToDisplay('sin')">sin</div>
+            <div class="button" onclick="addToDisplay('ln')">ln</div>
+            <div class="button" onclick="addToDisplay('7')">7</div>
+            <div class="button" onclick="addToDisplay('8')">8</div>
+            <div class="button" onclick="addToDisplay('9')">9</div>
+            <div class="button" onclick="addToDisplay('π')">π</div>
+            <div class="button" onclick="addToDisplay('cos')">cos</div>
+            <div class="button" onclick="addToDisplay('log')">log</div>
+            <div class="button" onclick="addToDisplay('4')">4</div>
+            <div class="button" onclick="addToDisplay('5')">5</div>
+            <div class="button" onclick="addToDisplay('6')">6</div>
+            <div class="button" onclick="addToDisplay('e')">e</div>
+            <div class="button" onclick="addToDisplay('tan')">tan</div>
+            <div class="button" onclick="addToDisplay('√')">√</div>
+            <div class="button" onclick="addToDisplay('1')">1</div>
+            <div class="button" onclick="addToDisplay('2')">2</div>
+            <div class="button" onclick="addToDisplay('3')">3</div>
+            <div class="button" onclick="addToDisplay('Ans')">Ans</div>
+            <div class="button" onclick="addToDisplay('EXP')">EXP</div>
+            <div class="button" onclick="addToDisplay('x²')">x²</div>
+            <div class="button" onclick="addToDisplay('0')">0</div>
+            <div class="button" onclick="addToDisplay('.')">.</div>
+            <div class="button" onclick="calculate()">=</div>
         </div>
     </div>
-    <div class="history">
-        <h3>History</h3>
-        <ul id="history-list"></ul>
-        <button id="clear-history">Clear History</button>
-    </div>
 
-    <script src="js/script.js"></script>
+    <script>
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function calculate() {
+            try {
+                let expression = document.getElementById('display').value;
+                let result = eval(expression);
+                document.getElementById('display').value = result;
+            } catch (e) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
 </body>
 </html>
