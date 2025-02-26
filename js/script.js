@@ -46,6 +46,16 @@ buttons.forEach(button => {
             result.value = Math.log10(eval(result.value));
         } else if (value === 'ln') {
             result.value = Math.log(eval(result.value));
+        } else if (value === '!') {
+            result.value = factorial(eval(result.value));
+        } else if (value === '%') {
+            result.value = eval(result.value) / 100;
+        } else if (value === 'exp') {
+            result.value = Math.exp(eval(result.value));
+        } else if (value === 'deg') {
+            result.value = (eval(result.value) * 180) / Math.PI;
+        } else if (value === 'rad') {
+            result.value = (eval(result.value) * Math.PI) / 180;
         } else if (value === 'π') {
             result.value += Math.PI;
         } else if (value === 'e') {
@@ -60,6 +70,12 @@ buttons.forEach(button => {
 function evaluateExpression(expression) {
     expression = expression.replace(/\^/g, '**');
     return eval(expression);
+}
+
+// Factorial Function
+function factorial(n) {
+    if (n === 0 || n === 1) return 1;
+    return n * factorial(n - 1);
 }
 
 // Add to History
