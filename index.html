@@ -10,36 +10,58 @@
   <div class="calculator">
     <input type="text" id="display" disabled>
     <div class="buttons">
+      <!-- Advanced Math Functions -->
+      <button onclick="appendToDisplay('Math.pow(')">x^y</button>
+      <button onclick="appendToDisplay('Math.sqrt(')">√</button>
+      <button onclick="appendToDisplay('Math.log(')">ln</button>
+      <button onclick="appendToDisplay('Math.log10(')">log</button>
+      <button onclick="appendToDisplay('Math.sin(')">sin</button>
+      <button onclick="appendToDisplay('Math.cos(')">cos</button>
+      <button onclick="appendToDisplay('Math.tan(')">tan</button>
+      <button onclick="appendToDisplay('Math.asin(')">sin⁻¹</button>
+      <button onclick="appendToDisplay('Math.acos(')">cos⁻¹</button>
+      <button onclick="appendToDisplay('Math.atan(')">tan⁻¹</button>
+      <button onclick="appendToDisplay('Math.sinh(')">sinh</button>
+      <button onclick="appendToDisplay('Math.cosh(')">cosh</button>
+      <button onclick="appendToDisplay('Math.tanh(')">tanh</button>
+      <button onclick="appendToDisplay('factorial(')">!</button>
+      <button onclick="appendToDisplay('%')">%</button>
+      <button onclick="appendToDisplay('Math.PI')">π</button>
+      <button onclick="appendToDisplay('Math.E')">e</button>
+
+      <!-- Memory Functions -->
+      <button onclick="memoryStore()">M+</button>
+      <button onclick="memoryRecall()">MR</button>
+      <button onclick="memoryClear()">MC</button>
+      <button onclick="memoryAdd()">M+</button>
+
+      <!-- Unit Conversions -->
+      <button onclick="convertUnit('degToRad')">Deg→Rad</button>
+      <button onclick="convertUnit('radToDeg')">Rad→Deg</button>
+      <button onclick="convertUnit('celsiusToFahrenheit')">°C→°F</button>
+      <button onclick="convertUnit('fahrenheitToCelsius')">°F→°C</button>
+
+      <!-- Basic Buttons -->
       <button onclick="clearDisplay()">C</button>
       <button onclick="deleteLast()">DEL</button>
       <button onclick="appendToDisplay('(')">(</button>
       <button onclick="appendToDisplay(')')">)</button>
       <button onclick="appendToDisplay('/')">/</button>
-
       <button onclick="appendToDisplay('7')">7</button>
       <button onclick="appendToDisplay('8')">8</button>
       <button onclick="appendToDisplay('9')">9</button>
       <button onclick="appendToDisplay('*')">*</button>
-
       <button onclick="appendToDisplay('4')">4</button>
       <button onclick="appendToDisplay('5')">5</button>
       <button onclick="appendToDisplay('6')">6</button>
       <button onclick="appendToDisplay('-')">-</button>
-
       <button onclick="appendToDisplay('1')">1</button>
       <button onclick="appendToDisplay('2')">2</button>
       <button onclick="appendToDisplay('3')">3</button>
       <button onclick="appendToDisplay('+')">+</button>
-
       <button onclick="appendToDisplay('0')">0</button>
       <button onclick="appendToDisplay('.')">.</button>
       <button onclick="calculateResult()">=</button>
-      <button onclick="appendToDisplay('Math.sqrt(')">√</button>
-
-      <button onclick="appendToDisplay('Math.sin(')">sin</button>
-      <button onclick="appendToDisplay('Math.cos(')">cos</button>
-      <button onclick="appendToDisplay('Math.tan(')">tan</button>
-      <button onclick="appendToDisplay('Math.log(')">log</button>
     </div>
   </div>
   <script src="script.js"></script>
