@@ -257,20 +257,4 @@ body.light-mode #clear-history {
 
 .calculator {
     animation: fadeIn 1s ease-out;
-    /* Buttons */
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 8 columns for landscape */
-    gap: 10px;
-}
-
-/* Equal button spans 2 columns */
-.equal {
-    grid-column: span 2;
-}
-
-/* Zero button spans 2 columns */
-.btn[data-value="0"] {
-    grid-column: span 2;
-}
 }
