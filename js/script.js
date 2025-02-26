@@ -7,6 +7,7 @@ const themeLabel = document.getElementById('theme-label');
 const body = document.body;
 
 let history = [];
+let isRadians = true; // Default to radians
 
 // Load history from localStorage
 if (localStorage.getItem('calculatorHistory')) {
@@ -37,11 +38,11 @@ buttons.forEach(button => {
         } else if (value === '^') {
             result.value += '**';
         } else if (value === 'sin') {
-            result.value = Math.sin(eval(result.value));
+            result.value = isRadians ? Math.sin(eval(result.value)) : Math.sin((eval(result.value) * Math.PI) / 180);
         } else if (value === 'cos') {
-            result.value = Math.cos(eval(result.value));
+            result.value = isRadians ? Math.cos(eval(result.value)) : Math.cos((eval(result.value) * Math.PI) / 180);
         } else if (value === 'tan') {
-            result.value = Math.tan(eval(result.value));
+            result.value = isRadians ? Math.tan(eval(result.value)) : Math.tan((eval(result.value) * Math.PI) / 180);
         } else if (value === 'log') {
             result.value = Math.log10(eval(result.value));
         } else if (value === 'ln') {
@@ -52,14 +53,18 @@ buttons.forEach(button => {
             result.value = eval(result.value) / 100;
         } else if (value === 'exp') {
             result.value = Math.exp(eval(result.value));
-        } else if (value === 'deg') {
-            result.value = (eval(result.value) * 180) / Math.PI;
-        } else if (value === 'rad') {
-            result.value = (eval(result.value) * Math.PI) / 180;
+        } else if (value === 'Rad') {
+            isRadians = true;
+        } else if (value === 'Deg') {
+            isRadians = false;
         } else if (value === 'π') {
             result.value += Math.PI;
         } else if (value === 'e') {
             result.value += Math.E;
+        } else if (value === 'Ans') {
+            result.value += history[history.length - 1]?.split('=')[1].trim() || '';
+        } else if (value === 'x²') {
+            result.value = Math.pow(eval(result.value), 2);
         } else {
             result.value += value;
         }
